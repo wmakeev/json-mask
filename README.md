@@ -42,7 +42,7 @@ The syntax is loosely based on XPath:
 - ` a,b,c` comma-separated list will select multiple fields
 - ` a/b/c` path will select a field from its parent
 - `a(b,c)` sub-selection will select many fields from a parent
-- ` a/*/c` the star `*` wildcard will select all items in a field
+- ` a/*/c` the star `*` wildcard will select all object items (plain object or array) in a field
 
 Take a look at `test/index-test.js` for examples of all of these and more.
 
