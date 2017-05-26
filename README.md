@@ -10,13 +10,13 @@ var mask = require('json-mask')
 mask({p: {a: 1, b: 2}, z: 1}, 'p/a,z')  // {p: {a: 1}, z: 1}
 ```
 
-The main difference between JSONPath / JSONSelect and this engine is that JSON Mask 
+The main difference between JSONPath / JSONSelect and this engine is that JSON Mask
 **preserves the structure of the original input object**.
-Instead of returning an array of selected sub-elements (e.g. `[{a: 1}, {z: 1}]` from example above), 
-it filters-out the parts of the object that you don't need, 
+Instead of returning an array of selected sub-elements (e.g. `[{a: 1}, {z: 1}]` from example above),
+it filters-out the parts of the object that you don't need,
 keeping the structure unchanged: `{p: {a: 1}, z: 1}`.
 
-This is important because JSON Mask was designed with HTTP resources in mind, 
+This is important because JSON Mask was designed with HTTP resources in mind,
 the structure of which I didn't want to change after the unwanted fields
 were masked / filtered.
 
@@ -27,7 +27,7 @@ my own Node.js-based HTTP services was the reason I wrote JSON Mask.
 
 *For [express](http://expressjs.com/) users, there's an
 [express-partial-response](https://github.com/nemtsov/express-partial-response) middleware.
-It will integrate with your existing services with no additional code 
+It will integrate with your existing services with no additional code
 if you're using `res.json()` or `res.jsonp()`. And if you're already using [koa](https://github.com/koajs/koa.git)
 check out the [koa-json-mask](https://github.com/nemtsov/koa-json-mask) middleware.*
 
@@ -44,7 +44,7 @@ The syntax is loosely based on XPath:
 - `a(b,c)` sub-selection will select many fields from a parent
 - ` a/*/c` the star `*` wildcard will select all object items (plain object or array) in a field
 
-Take a look at `test/index-test.js` for examples of all of these and more.
+Take a look at `test/cases/index.js` for examples of all of these and more.
 
 
 ## Grammar
